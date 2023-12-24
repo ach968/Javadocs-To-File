@@ -1,36 +1,5 @@
 import { parse } from "node-html-parser";
 import fetch from "node-fetch";
-import readline from "readline";
-import javadocsHTML from "./javadocs.js";
-import { writeFile } from "fs/promises";
-
-let global = "";
-let className = "";
-
-const getUserInput = function () {
-  return new Promise((resolve, reject) => {
-    // resolve reject acts as
-    const read = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
-    read.question("URL: ", (input) => {
-      if (
-        input.includes("package-summary") ||
-        input.includes("package-use") ||
-        input.includes("package-tree") ||
-        input.includes("index-files") ||
-        input.includes("help-doc")
-      ) {
-        read.close();
-        reject(new Error("< PLEASE ENTER A VALID URL! >"));
-      } else {
-        read.close();
-        resolve(input);
-      }
-    });
-  });
-};
 
 const getHTML = async function (inputStr) {
   try {
@@ -89,7 +58,7 @@ const javadocCommentBuilder = function (input, indent) {
 
 const fileBuilder = function (html) {
   const root = parse(html);
-  className = root.querySelector("title").text;
+  // className = root.querySelector("title").text;
   let output = "";
   if (root.getElementById("class-description")) {
     output += classBuilder(root);
@@ -324,32 +293,13 @@ const blockBuilder = function (member, memberIndentSize) {
   return memberBuilder;
 };
 
-const fileWriter = async function (filePath, dataToWrite) {
+const runConversion = async function (link) {
   try {
-    // Use writeFile to create the file and write data to it
-    await writeFile(filePath, dataToWrite);
-    console.log("File created and data has been written successfully!");
-  } catch (err) {
-    console.error("Error creating or writing to file:", err);
-  }
-};
-
-const main = async function () {
-  // let inputStr = await getUserInput();
-  try {
-    let html = await getHTML(
-      "https://cs300-www.cs.wisc.edu/wp/wp-content/uploads/2023/fall/p09/BusDataLoader.html"
-    );
-    // html = javadocsHTML;
-
-    const root = parse(html);
-    const dataToWrite = fileBuilder(html);
-    const filePath = `${className}.java`;
-
-    fileWriter(filePath, dataToWrite);
+    let html = await getHTML(link);
+    return fileBuilder(html);
   } catch (error) {
     throw error;
   }
 };
 
-main();
+export { runConversion };
