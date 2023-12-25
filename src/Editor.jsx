@@ -5,7 +5,7 @@ import "ace-builds/src-noconflict/ext-language_tools";
 import { useState, useEffect } from "react";
 import React from "react";
 
-export default function Editor({ preloadedCode }) {
+export default function Editor({ preloadedCode, exportChange }) {
   const [code, setCode] = useState(preloadedCode);
 
   useEffect(() => {
@@ -14,6 +14,7 @@ export default function Editor({ preloadedCode }) {
 
   const handleChange = (newCode) => {
     setCode(newCode);
+    exportChange(code);
   };
 
   return (
