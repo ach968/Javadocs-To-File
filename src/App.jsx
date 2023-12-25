@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Editor from "./Editor";
 import Form from "./Form";
+import Download from "./Download";
 
 export default function App() {
   const [preloadedCode, setPreCode] = useState("");
@@ -12,6 +13,7 @@ export default function App() {
   return (
     <>
       <Form onLinkSubmit={handleLinkSubmission}></Form>
+      <Download></Download>
       <Editor preloadedCode={preloadedCode}></Editor>
     </>
   );

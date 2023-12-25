@@ -1,5 +1,5 @@
 import express from "express";
-import { runConversion } from "./scripts/JDtoCode.js";
+import { runConversion } from "./scripts/builder.js";
 import cors from "cors";
 import bodyParser from "body-parser";
 

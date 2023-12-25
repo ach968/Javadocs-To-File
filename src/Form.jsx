@@ -27,17 +27,16 @@ export default function Form({ onLinkSubmit }) {
 
   return (
     <>
-      <form onSubmit={handleSubmission} className="inputItem">
-        <div className="formRow">
-          <label htmlFor="link">Link:</label>
-          <input
-            type="text"
-            id="link"
-            value={link}
-            onChange={handleLinkChange}
-          />
-        </div>
-        <button className="genButton">Generate!</button>
+      <form onSubmit={handleSubmission} className="input-row">
+        <label htmlFor="link">LINK: </label>
+        <input
+          placeholder="Enter your link here"
+          type="text"
+          id="link"
+          value={link}
+          onChange={handleLinkChange}
+        />
+        <button className="submission-button">GENERATE!</button>
       </form>
     </>
   );
