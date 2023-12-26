@@ -20,12 +20,16 @@ body {
   font-size: x-large;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
+  margin-top: 35px;
 }
 
 label {
   padding-right: 10px;
   font-weight: bolder;
+}
+
+label:hover {
+  cursor: text;
 }
 
 #link {
@@ -92,23 +96,43 @@ label {
 }
 
 .download-editor {
+  border-radius: 15px;
+  background-color: #8c8a8a;
+  width: 1025px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.download-button img {
+  height: 20px;
+  width: 20px;
   background-color: #8c8a8a;
 }
 
-.editor-div {
-  border: 0px solid rgb(34, 255, 53);
+.download-button {
+  border-radius: 7px;
+  background-color: #8c8a8a;
+  border: none;
+}
+
+.download-button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #8c8a8a 0 -3px 0 inset;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.download-row {
+  /* border: 10px solid #57e703; */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  width: 1250px;
+  padding-left: 985.5px;
+  padding-top: 5px;
+  padding-bottom: 4px;
 }
 
 .editor {
-  border-radius: 21px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   font-family: monospace;
 }

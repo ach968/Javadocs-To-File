@@ -18,7 +18,6 @@ export default function Editor({ preloadedCode, exportChange }) {
   };
 
   return (
-    <div className="editor-div">
       <AceEditor
         placeholder=""
         mode="java"
@@ -40,9 +39,8 @@ export default function Editor({ preloadedCode, exportChange }) {
           fixedWidthGutter: true,
         }}
         className="editor"
-        width="85%"
+        width="100%"
         height="600px"
       />
-    </div>
   );
 }
