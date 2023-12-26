@@ -1,5 +1,5 @@
 import express from "express";
-import { runConversion } from "./scripts/builder.js";
+import { runConversion, getClassName } from "./scripts/builder.js";
 import cors from "cors";
 import bodyParser from "body-parser";
 
@@ -16,8 +16,12 @@ app.post("/", async (req, res) => {
       throw new Error("Invalid link");
     }
 
-    const result = await runConversion(link);
-    res.send(result);
+    const responseObj = {
+      className: await getClassName(link), // assuming className is a string
+      body: await runConversion(link),
+    };
+
+    res.json(responseObj);
   } catch (error) {
     console.error("Error processing link:", error);
     res.status(500).send("Internal Server Error");

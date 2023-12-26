@@ -2,7 +2,7 @@ import "./styles.css";
 import { useState } from "react";
 import axios from "axios";
 
-export default function Form({ onLinkSubmit }) {
+export default function Form({ onLinkSubmit, setName }) {
   const [link, setLink] = useState("");
   const serverPort = "http://localhost:3000";
 
@@ -12,6 +12,7 @@ export default function Form({ onLinkSubmit }) {
 
   const handleSubmission = async (event) => {
     event.preventDefault();
+
     // sending link to backend
     try {
       const response = await axios.post(serverPort, link, {
@@ -19,7 +20,10 @@ export default function Form({ onLinkSubmit }) {
           "Content-Type": "text/plain",
         },
       });
-      onLinkSubmit(String(response.data));
+      const { className, body } = response.data;
+
+      onLinkSubmit(String(body));
+      setName(String(className));
     } catch (error) {
       console.error("Error sending data to server:", error);
     }

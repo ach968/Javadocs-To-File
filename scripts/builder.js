@@ -5,6 +5,8 @@ import fieldBuilder from "./fieldBuilder.js";
 import constructorBuilder from "./constructorBuilder.js";
 import methodBuilder from "./methodBuilder.js";
 
+let className;
+
 const getHTML = async function (inputStr) {
   try {
     const response = await fetch(inputStr);
@@ -17,7 +19,7 @@ const getHTML = async function (inputStr) {
 
 const fileBuilder = function (html) {
   const root = parse(html);
-  // className = root.querySelector("title").text;
+  className = root.querySelector("title").text;
   let output = "";
   if (root.getElementById("class-description")) {
     output += classBuilder(root);
@@ -46,4 +48,10 @@ const runConversion = async function (link) {
   }
 };
 
-export { runConversion };
+const getClassName = async function (link) {
+  let html = await getHTML(link);
+  let className = parse(html).querySelector("title").text;
+  return className;
+};
+
+export { runConversion, getClassName };

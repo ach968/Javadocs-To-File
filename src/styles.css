@@ -91,6 +91,10 @@ label {
   transform: translateY(2px);
 }
 
+.download-editor {
+  background-color: #8c8a8a;
+}
+
 .editor-div {
   border: 0px solid rgb(34, 255, 53);
   display: flex;
