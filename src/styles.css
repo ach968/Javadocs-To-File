@@ -114,21 +114,27 @@ label:hover {
   border-radius: 7px;
   background-color: #8c8a8a;
   border: none;
+  margin-right: 10px;
 }
 
 .download-button:hover {
-  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #8c8a8a 0 -3px 0 inset;
-  transform: translateY(-2px);
   cursor: pointer;
 }
 
-.download-row {
-  /* border: 10px solid #57e703; */
+.editor-header-row {
   display: flex;
-  padding-left: 985.5px;
   padding-top: 5px;
   padding-bottom: 4px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editor-header-row-text {
+  font-size: large;
+  display: flex;
+  flex: content;
+  justify-content: center;
+  align-items: center;
 }
 
 .editor {

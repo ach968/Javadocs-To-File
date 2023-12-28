@@ -30,8 +30,11 @@ export default function App() {
     <>
       <Form onLinkSubmit={handleLinkSubmission} setName={handleFileName}></Form>
       <div className="download-editor">
-        <div className="download-row">
-          <Download fileData={write} fileName={file}></Download>
+        <div className="editor-header-row">
+          <div className="editor-header-row-text">-- Editor --</div>
+          <div className="download-button-container">
+            <Download fileData={write} fileName={file}></Download>
+          </div>
         </div>
         <Editor
           preloadedCode={preloadedCode}
