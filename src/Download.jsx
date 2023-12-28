@@ -10,7 +10,7 @@ export default function Download({ fileData, fileName }) {
   };
   return (
     <button className="download-button" onClick={handleDownload}>
-      <img src="https://cdn-icons-png.flaticon.com/512/0/532.png" id = "download-image"></img>
+      <img src="assets/532.png" id="download-image"></img>
     </button>
   );
 }
