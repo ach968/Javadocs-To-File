@@ -25,7 +25,6 @@ export default function Form({ onLinkSubmit, setName }) {
       onLinkSubmit(String(body));
       setName(String(className));
     } catch (error) {
-      console.error("Error sending data to server:", error);
       alert("Error: Please Enter a Valid Link!");
     }
   };

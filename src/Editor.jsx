@@ -2,7 +2,6 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-idle_fingers";
 import "ace-builds/src-noconflict/ext-language_tools";
-import { useState, useEffect } from "react";
 import React from "react";
 
 export default function Editor({ handleEditorChange, code }) {
@@ -33,7 +32,7 @@ export default function Editor({ handleEditorChange, code }) {
       }}
       className="editor"
       width="100%"
-      height="600px"
+      height="550px"
     />
   );
 }
