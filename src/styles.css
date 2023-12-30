@@ -146,12 +146,13 @@ label:hover {
 }
 
 .editor-header-row-text {
-  font-size: large;
+  font-size:16px;
   display: flex;
   flex: content;
   justify-content: center;
   align-items: center;
-  padding-left: 10px;
+  padding-left: 30px;
+  font-family: monospace;
 }
 
 .editor {
