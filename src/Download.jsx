@@ -8,7 +8,7 @@ export default function Download({ fileData, fileName }) {
     const url = URL.createObjectURL(file);
     const element = document.createElement("a");
     element.href = url;
-    element.download = `${fileName ? fileName : "text"}.txt`;
+    element.download = `${fileName ? fileName : "filler"}.java`;
     document.body.appendChild(element);
     element.click();
   };

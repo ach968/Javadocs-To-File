@@ -2,8 +2,7 @@ import "./styles.css";
 import { useState } from "react";
 import axios from "axios";
 
-export default function Form({ onLinkSubmit, setName }) {
-  const [link, setLink] = useState("");
+export default function Form({ onLinkSubmit, setName, setLink, link }) {
   const serverPort = "https://javadocs-to-file-backend.uc.r.appspot.com";
 
   const handleLinkChange = (event) => {

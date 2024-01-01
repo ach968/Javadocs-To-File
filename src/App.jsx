@@ -9,13 +9,11 @@ export default function App() {
   const [file, setFileName] = useState("");
   const [write, setWrite] = useState("");
   const [code, setCode] = useState(preloadedCode);
+  const [link, setLink] = useState("");
 
   useEffect(() => {
     setCode(preloadedCode);
-  }, [preloadedCode]);
-
-  useEffect(() => {
-    setWrite(preloadedCode);
+    setWrite(preloadedCode)
   }, [preloadedCode]);
 
   useEffect(() => {}, [file]);
@@ -35,11 +33,15 @@ export default function App() {
   const handleEditorChange = (newCode) => {
     setCode(newCode);
     handleFileChange(code);
+    if(!newCode){
+      setWrite("");
+      setLink("");
+    }
   };
 
   return (
     <>
-      <Form onLinkSubmit={handleLinkSubmission} setName={handleFileName}></Form>
+      <Form onLinkSubmit={handleLinkSubmission} setName={handleFileName} setLink={setLink} link={link}></Form>
       <div className="download-editor">
         <div className="editor-header-row">
           <div className="editor-header-row-text">-- Editor --</div>
@@ -49,5 +51,5 @@ export default function App() {
         <Editor handleEditorChange={handleEditorChange} code={code}></Editor>
       </div>
     </>
-  );cu
+  );
 }
